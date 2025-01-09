@@ -1,0 +1,839 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
+// swift-module-flags: -target arm64-apple-ios13 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-experimental-feature OpaqueTypeErasure -enable-bare-slash-regex -module-name EnxRTCiOS
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVFoundation
+import CoreTelephony
+@_exported import EnxRTCiOS
+import Foundation
+import Metal
+import Photos
+import SocketIO
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+import WebRTC
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency open class EnxToolBar : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func awakeFromNib()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func layoutSubviews()
+  @objc deinit
+}
+@objc public protocol EnxStreamDelegate {
+  @objc optional func didAudioEvents(_ responseData: [Swift.String : Any]?)
+  @objc optional func didVideoEvents(_ responseData: [Swift.String : Any]?)
+  @objc optional func didReceiveData(_ responseData: [Swift.String : Any]?)
+  @objc optional func stream(_ stream: EnxRTCiOS.EnxStream?, didHardVideoMute responseData: [Any]?)
+  @objc optional func stream(_ stream: EnxRTCiOS.EnxStream?, didHardVideoUnMute responseData: [Any]?)
+  @objc optional func stream(_ stream: EnxRTCiOS.EnxStream?, didReceivehardMuteVideo responseData: [Any]?)
+  @objc optional func stream(_ stream: EnxRTCiOS.EnxStream?, didRecivehardUnmuteVideo responseData: [Any]?)
+  @objc optional func stream(_ stream: EnxRTCiOS.EnxStream?, didRemoteStreamVideoMute responseData: [Any]?)
+  @objc optional func stream(_ stream: EnxRTCiOS.EnxStream?, didRemoteStreamVideoUnMute responseData: [Any]?)
+  @objc optional func stream(_ stream: EnxRTCiOS.EnxStream?, didRemoteStreamAudioMute responseData: [Any]?)
+  @objc optional func stream(_ stream: EnxRTCiOS.EnxStream?, didRemoteStreamAudioUnMute responseData: [Any]?)
+  @objc optional func didhardMuteAudio(_ responseData: [Any]?)
+  @objc optional func didhardUnMuteAudio(_ responseData: [Any]?)
+  @objc optional func didRecievedHardMutedAudio(_ responseData: [Any]?)
+  @objc optional func didRecievedHardUnmutedAudio(_ responseData: [Any]?)
+}
+@objc @_inheritsConvenienceInitializers open class EnxStream : ObjectiveC.NSObject {
+  public var usingFrontCamera: Swift.Bool
+  public var streamAttributes: [Swift.String : Any]
+  public var mediaType: Swift.String
+  public var isLocal: Swift.Bool {
+    get
+  }
+  @objc public var streamId: Swift.String!
+  public var dirtyAttributes: Swift.Bool {
+    get
+  }
+  @objc public var delegate: (any EnxRTCiOS.EnxStreamDelegate)?
+  public var mediaStream: WebRTC.RTCMediaStream!
+  public var remoteStreamOptions: [Swift.String : Any]!
+  public var room: EnxRTCiOS.EnxRoom!
+  public var screen: Swift.Bool
+  public var isCanvas: Swift.Bool
+  public var isScreenShared: Swift.Bool
+  public var isSelfMuted: Swift.Bool
+  public var isSelfVideoMuted: Swift.Bool
+  public var defaultVideoConstraints: WebRTC.RTCMediaConstraints! {
+    get
+  }
+  public var defaultAudioConstraints: WebRTC.RTCMediaConstraints! {
+    get
+  }
+  public var capturer: WebRTC.RTCCameraVideoCapturer!
+  public var device: AVFoundation.AVCaptureDevice! {
+    get
+  }
+  @objc public var enxPlayerView: EnxRTCiOS.EnxPlayerView! {
+    get
+  }
+  @objc public var clientId: Swift.String!
+  @objc public var name: Swift.String!
+  public var reasonForMuteVideo: Swift.String!
+  public var videoAspectRatio: Swift.String!
+  public var isAudioOnlyStream: Swift.Bool {
+    get
+  }
+  public var isCaptchaStared: Swift.Bool {
+    get
+  }
+  @objc public var layout: Swift.String!
+  @objc public var streamLayout: Swift.String!
+  @objc override dynamic public init()
+  @objc deinit
+  @objc public init(localStream: Swift.Bool)
+  @objc public init(canvasStream: Swift.Bool)
+  @objc public init(screenShareStream: Swift.Bool)
+  @objc public init(withStreamId: Swift.String, attributes: [Swift.String : Any])
+  @objc public func signalingChannel() -> EnxRTCiOS.EnxSignalingChannel?
+  @objc public func setAttributes(_ attributes: [Swift.String : Any])
+  @available(iOSApplicationExtension, unavailable)
+  @available(macCatalystApplicationExtension, unavailable)
+  @available(macOSApplicationExtension, unavailable)
+  @objc public func stopCapture()
+  @available(iOSApplicationExtension, unavailable)
+  @available(macCatalystApplicationExtension, unavailable)
+  @available(macOSApplicationExtension, unavailable)
+  @objc public func startCapture()
+  @objc public func startPreviewCapture()
+  @objc public func stopPreviewCapture()
+  @objc public func switchCameraPreview()
+  @objc public func setZoomFactor(_ value: CoreFoundation.CGFloat)
+  @objc public func attachRenderer(_ enxPlayer: EnxRTCiOS.EnxPlayerView)
+  @objc public func detachRenderer()
+  @objc public func setStreamResolution(_ width: Swift.Int, height: Swift.Int)
+  @objc public func updateConfiguration(_ data: [Swift.String : Any])
+  @objc public func switchCamera() -> Foundation.NSException?
+  @objc public func muteSelfAudio(_ isMute: Swift.Bool)
+  @objc public func selfHardMute(audio isMuted: Swift.Bool)
+  @objc public func muteUnMuteVideowithSenssorUpdate(_ flag: Swift.Bool)
+  @objc public func SelfHardMuteVideo(_ isMuted: Swift.Bool)
+  @objc public func muteSelfVideo(_ isMuted: Swift.Bool)
+  @objc public func hardMuteAudio(_ clientId: Swift.String)
+  @objc public func hardUnMuteAudio(_ clientId: Swift.String)
+  public func gethardMuteAudio(_ data: [Swift.String : Any])
+  public func gethardUnMuteAudio(_ data: [Swift.String : Any])
+  public func getRecievedHardMutedAudio(_ data: [Swift.String : Any])
+  public func getRecievedHardUnMutedAudio(_ data: [Swift.String : Any])
+  @objc public func hardMuteVideo(_ clientId: Swift.String)
+  @objc public func hardUnMuteVideo(_ clientId: Swift.String)
+  public func getReceivedData(_ data: [Swift.String : Any])
+  public func getHardVideoMute(_ data: [Swift.String : Any])
+  public func getHardVideoUnMute(_ data: [Swift.String : Any])
+  public func getRecivehardMuteVideo(_ data: [Swift.String : Any])
+  public func getRecivehardUnmuteVideo(_ data: [Swift.String : Any])
+  public func getselfVideoMute(_ data: [Swift.String : Any])
+  public func getselfVideoUnmute(_ data: [Swift.String : Any])
+  public func getselfAudioMute(_ data: [Swift.String : Any])
+  public func getselfAudioUnmute(_ data: [Swift.String : Any])
+  @objc public func sendData(_ data: [Swift.String : Any])
+  @objc public func hasAudio() -> Swift.Bool
+  @objc public func hasVideo() -> Swift.Bool
+  @objc public func hasData() -> Swift.Bool
+}
+@objc public enum EnxRoomStatus : Swift.Int {
+  case ready = 0, connected, disconnected, error, exprired, disconnectedByModerator
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum EnxOutBoundCallState : Swift.Int {
+  case Initiated = 0, Ringing, Connected, Failed, Disconnected, Timeout
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum EnxCustomDataScope : Swift.Int {
+  case user, owner, room, session
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum EnxPubType : Swift.Int {
+  case Screen, Canvas
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum EnxPubMode : Swift.Int {
+  case All, Authorize, Moderators
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol EnxRoomDelegate {
+  @objc func room(_ room: EnxRTCiOS.EnxRoom?, didConnect roomMetadata: [Swift.String : Any]?)
+  @objc func didRoomDisconnect(_ response: [Any]?)
+  @objc func room(_ room: EnxRTCiOS.EnxRoom?, didError reason: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didEventInfo infoData: [Swift.String : Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didEventError reason: [Any]?)
+  @objc func room(_ room: EnxRTCiOS.EnxRoom?, didAddedStream stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSubscribeStream stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUnSubscribeStream stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didPublishStream stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUnpublishStream stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didChangeStatus status: EnxRTCiOS.EnxRoomStatus)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didReconnect reason: Swift.String?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didConnectionInterrupted data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didConnectionLost data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserReconnectSuccess data: [Swift.String : Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didReceiveData data: [Any]?, fromStream stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didMessageReceived data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didUserDataReceived data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAcknowledgSendData data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didFileUploadStarted data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didInitFileUpload data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didFileAvailable data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didFileUploaded data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didFileUploadFailed data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didFileDownloaded data: Swift.String?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didFileDownloadFailed data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didInitFileDownload data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didFileDownloadCancelled data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom, didFileUploadCancelled data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStreamZoom data: [Swift.String : Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUpdateAttributesOfStream stream: EnxRTCiOS.EnxStream?)
+  @objc optional func didLogUpload(_ data: [Any]?)
+  @objc optional func didFloorRequested(_ Data: [Any]?)
+  @objc optional func didFloorCancelled(_ Data: [Any]?)
+  @objc optional func didFloorFinished(_ Data: [Any]?)
+  @objc optional func didGrantedFloorRequest(_ Data: [Any]?)
+  @objc optional func didDeniedFloorRequest(_ Data: [Any]?)
+  @objc optional func didReleasedFloorRequest(_ Data: [Any]?)
+  @objc optional func didCancelledFloorRequest(_ Data: [Any]?)
+  @objc optional func didFinishedFloorRequest(_ Data: [Any]?)
+  @objc optional func didFloorRequestReceived(_ Data: [Any]?)
+  @objc optional func didProcessFloorRequested(_ Data: [Any]?)
+  @objc optional func didACKInvite(toFloorRequested Data: [Any]?)
+  @objc optional func didInvite(toFloorRequested Data: [Any]?)
+  @objc optional func didInvited(forFloorAccess Data: [Any]?)
+  @objc optional func didCanceledFloorInvite(_ Data: [Any]?)
+  @objc optional func didRejectedInviteFloor(_ Data: [Any]?)
+  @objc optional func didAcceptedFloorInvite(_ Data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, chairControlStates data: [Swift.String : Any]?)
+  @objc optional func didhardMute(_ Data: [Any]?)
+  @objc optional func didhardUnMute(_ Data: [Any]?)
+  @objc optional func didHardMuteRecived(_ Data: [Any]?)
+  @objc optional func didHardunMuteRecived(_ Data: [Any]?)
+  @objc optional func didAckHardMuteUserAudio(_ data: [Any]?)
+  @objc optional func didAckHardunMuteUserAudio(_ data: [Any]?)
+  @objc optional func didAckHardMuteUserVideo(_ data: [Any]?)
+  @objc optional func didAckHardUnMuteUserVideo(_ data: [Any]?)
+  @objc optional func didHardUnMuteSingleUser(_ data: [Any]?)
+  @objc func room(_ room: EnxRTCiOS.EnxRoom?, userDidJoined Data: [Any]?)
+  @objc func room(_ room: EnxRTCiOS.EnxRoom?, userDidDisconnected Data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStartRecordingStream stream: EnxRTCiOS.EnxStream?, withRecordingId recordingId: Swift.String?, recordingDate data: Foundation.Date?)
+  @objc optional func startRecordingEvent(_ response: [Any]?)
+  @objc optional func stopRecordingEvent(_ response: [Any]?)
+  @objc optional func roomRecord(on Data: [Any]?)
+  @objc optional func roomRecordOff(_ Data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didActiveTalkerList Data: [EnxRTCiOS.EnxStream]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didActiveTalkerView view: UIKit.UIView?)
+  @objc optional func didAvailable(activeUser count: Swift.Int)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didGetMaxTalkers Data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didGetTalkerCount Data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSetTalkerCount Data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didScreenShareStarted stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didScreenShareStopped stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStartScreenShareACK data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStoppedScreenShareACK data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didExitScreenShareACK data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStopAllSharingACK data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didOverrideScreenShareACK data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didCanvasStarted stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didCanvasStopped stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStartCanvasACK data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStoppedCanvasACK data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAnnotationStarted stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAnnotationStopped stream: EnxRTCiOS.EnxStream?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStartAnnotationACK Data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStoppedAnnotationACK Data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didBandWidthUpdated data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didCanvasStreamEvent data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didShareStreamEvent data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSetVideoQuality data: [Any]?)
+  @objc optional func didNotifyDeviceUpdate(_ updates: Swift.String)
+  @objc optional func didReceiveStats(_ statsData: [Any]?)
+  @objc optional func didAcknowledgeStats(_ subUnSubResponse: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAcknowledgementAdvanceOption data: [Swift.String : Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didBatteryUpdates data: [Swift.String : Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAspectRatioUpdates data: [Swift.String : Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didVideoResolutionUpdates data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didGetAdvanceOptions data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didPrivacyModeUpDated data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didConferenceRemainingDuration data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didConferencessExtended data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSwitchUserRole data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserRoleChanged data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckUserRoleChangeRequest data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckUserRoleChangeCanceRequest data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserRoleChangeRequest data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserRoleChangeCancel data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckAcceptUserRoleChange data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckDenyUserRoleChange data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserRoleChangeAccepted data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserRoleChangeDenied data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didAckSwitchedRoom data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didRoomModeSwitched data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didOutBoundCallInitiated data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didDialStateEvents state: EnxRTCiOS.EnxOutBoundCallState)
+  @objc optional func didDialStateEvents(_ data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didOutBoundCallCancel data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didOutBoundCallSendDtmf data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didDTMFCollected data: Swift.String?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckLockRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckUnlockRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didLockRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUnlockRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckDropUser data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckDestroy data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckStartStreaming data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckStopStreaming data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStreamingStarted data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStreamingStopped data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStreamingFailed data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didStreamingUpdated data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckCreateBreakOutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckCreateAndInviteBreakOutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didFailedJoinBreakOutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckInviteBreakOutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didConnectedBreakoutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didDisconnectedBreakoutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserJoinedBreakoutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didInvitationForBreakoutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didDestroyedBreakoutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserDisconnectedFromBreakoutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckRejectBreakoutRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didBreakoutRoomCreated data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didBreakoutRoomInvited data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didBreakoutRoomInviteRejected data: [Any]?)
+  @objc optional func didBreakoutroomjoining(_ data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckPause data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckResume data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserPaused data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didUserResumed data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckMuteRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckUnmuteRoom data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckPinUsers data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckUnpinUsers data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didpinnedUsers data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didRoomAwated data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didAckForApproveAwaitedUser data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didAckForDenyAwaitedUser data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, diduserAwaited data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckSubscribeTalkerNotification data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didAckUnsubscribeTalkerNotification data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didTalkerNotification data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didRoomBandwidthAlert data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didAckAddSpotlightUsers data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didAckRemoveSpotlightUsers data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didUpdatedSpotlightUsers data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didACKStartLiveRecording data: [Any]?)
+  @objc optional func room(_ channel: EnxRTCiOS.EnxRoom?, didACKStopLiveRecording data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didRoomLiveRecordingOn data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didRoomLiveRecordingOff data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didRoomLiveRecordingFailed data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didRoomLiveRecordingUpdated data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKUpdateLayout data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didLayoutupdated data: [Any]?)
+  @objc optional func didUserStartTyping(_ isTypping: Swift.Bool, nameOfUser name: Swift.String!)
+  @objc optional func didCustomDataSaved(_ data: [Any]?)
+  @objc optional func didCustomDataUpdated(_ data: [Any]?)
+  @objc optional func didGetCustomData(_ data: [Any]?)
+  @objc optional func didACKCustomDataUpdated(_ data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKSubscribePageVideo data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKUnsubscribePageVideo data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKGetPageVideo data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didPageTalkerList data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKStartLiveTranscription data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKStopLiveTranscription data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKSubscribeForLiveTranscription data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didTranscriptionEvents data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didRoomTranscriptionOn data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didRoomTranscriptionOff data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSelfTranscriptionOn data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSelfTranscriptionOff data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didHlsStarted data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didHlsStopped data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didHlsFailed data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didHlsWaiting data: [Any]?)
+  @objc optional func didSpeakerMuted()
+  @objc optional func didSpeakerUnmuted()
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionsModeChanged data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKSetSharePermissionMode data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKGrantSharePermission data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKDenySharePermission data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKReleaseSharePermission data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKRequestSharePermission data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didACKCancelSharePermission data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionRequested data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionReleased data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionDeny data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionCancled data: [Any]?)
+  @objc optional func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionGranted data: [Any]?)
+}
+@objc public protocol EnxBroadCastDelegate {
+  @objc func didStartBroadCast(_ data: [Any]?)
+  @objc func didStoppedBroadCast(_ data: [Any]?)
+  @objc func broadCastDisconnected()
+  @objc func broadCastConnected()
+  @objc func failedToConnect(withBroadCast data: [Any])
+  @objc func failedToDisconnect(withBroadCast data: [Any])
+  @objc func disconnectedByOwner()
+  @objc func didRequestedExitRoom(_ data: [Any]?)
+}
+@objc @_inheritsConvenienceInitializers open class EnxRoom : ObjectiveC.NSObject {
+  @objc public var delegate: (any EnxRTCiOS.EnxRoomDelegate)?
+  @objc public var broadCastDelegate: (any EnxRTCiOS.EnxBroadCastDelegate)?
+  @objc public var playerDelegate: Swift.AnyObject?
+  public var status: EnxRTCiOS.EnxRoomStatus! {
+    get
+  }
+  public var streamOptions: [Swift.String : Any]! {
+    get
+  }
+  public var options_screen: [Swift.String : Any] {
+    get
+  }
+  @objc public var roomId: Swift.String! {
+    get
+  }
+  @objc public var publishStream: EnxRTCiOS.EnxStream! {
+    get
+  }
+  @objc public var streamsByStreamId: [Swift.String : EnxRTCiOS.EnxStream] {
+    get
+  }
+  @objc public var remoteStreams: [EnxRTCiOS.EnxStream] {
+    @objc get
+  }
+  @objc public var recordEnabled: Swift.Bool {
+    get
+  }
+  @objc public var isRoomActiveTalker: Swift.Bool {
+    get
+  }
+  public var peerToPeerRoom: Swift.Bool {
+    get
+  }
+  public var peerFActory: WebRTC.RTCPeerConnectionFactory! {
+    get
+  }
+  public var publishingStats: Swift.Bool {
+    get
+  }
+  public var moderatorHardMuteActiveState: Swift.Bool {
+    get
+  }
+  public var participantHardMuteActiveState: Swift.Bool {
+    get
+  }
+  public var isHardMuteRoom: Swift.Bool {
+    get
+  }
+  public var isHardMuteUser: Swift.Bool {
+    get
+  }
+  public var isVideoUserHardMute: Swift.Bool {
+    get
+  }
+  public var isAudioOnlyStreams: Swift.Bool {
+    get
+  }
+  public var chatOnlyRoom: Swift.Bool {
+    get
+  }
+  public var isReconnectingAttampted: Swift.Bool {
+    get
+  }
+  @objc public var clientId: Swift.String! {
+    get
+  }
+  @objc public var clientName: Swift.String! {
+    get
+  }
+  @objc public var userRole: Swift.String! {
+    get
+  }
+  public var maxFrameLimits: Swift.Int! {
+    get
+  }
+  @objc public var roomInfo: [Swift.String : Any]! {
+    get
+  }
+  @objc public var isBreakOutRoom: Swift.Bool
+  public var delegateRef: Swift.AnyObject?
+  @objc public var isLobby: Swift.Bool {
+    get
+  }
+  @objc public var customRoomData: [Swift.String : Any] {
+    get
+  }
+  @objc public var roomMetadata: [Swift.String : Any]! {
+    get
+  }
+  @objc public var isAudioOnlyRoom: Swift.Bool {
+    get
+  }
+  @objc override dynamic public init()
+  @objc public init(_ withDelegate: (any EnxRTCiOS.EnxRoomDelegate)?)
+  @objc deinit
+  @objc public func getPreviewStream() -> EnxRTCiOS.EnxStream
+  @objc public func getLocalStream(_ publishStreamInfo: [Swift.String : Any]) -> EnxRTCiOS.EnxStream?
+  @objc public func connect(_ token: Swift.String, roomInfo rinfo: [Swift.String : Any]?, advanceOptions advOpt: [Any]?)
+  @objc public func whoami() -> [Swift.String : Any]?
+  @objc public func publish(_ stream: EnxRTCiOS.EnxStream)
+  @objc public func unpublish()
+  @objc public func subscribe(_ stream: EnxRTCiOS.EnxStream) -> Swift.Bool
+  @objc public func unsubscribe(_ stream: EnxRTCiOS.EnxStream)
+  @objc public func disconnect()
+  @objc public func postClientLogs()
+  @objc public func startRecord()
+  @objc public func stopRecord()
+  @objc public func adjustLayout()
+  @objc public func setActiveTalkerDelegate(_ delegate: (any EnxRTCiOS.EnxTalkerStreamDelegate)?)
+  @objc public func setAudioOnlyMode(_ audioOnly: Swift.Bool)
+  @objc public func setTalkerCount(_ number: Swift.Int)
+  @objc public func getMaxTalkers()
+  @objc public func getTalkerCount()
+  @objc public func updateConfiguration(_ data: [Swift.String : Any])
+  @objc public func startAnnotation(_ stream: EnxRTCiOS.EnxStream)
+  @objc public func stopAnnotation()
+  @objc public func extendConferenceDuration()
+  @objc public func startStreaming(_ streamingConfig: [Swift.String : Any])
+  @objc public func stopStreaming(_ streamingConfig: [Swift.String : Any])
+  @objc public func pinUsers(_ clientIds: [Swift.String])
+  @objc public func unpinUsers(_ clientIds: [Swift.String])
+  @objc public func pause()
+  @objc public func resume()
+  @objc public func muteRoom(_ data: [Swift.String : Any])
+  @objc public func unmuteRoom(_ data: [Swift.String : Any])
+  @objc public func approveAwaitedUser(_ clientId: Swift.String)
+  @objc public func denyAwaitedUser(_ clientId: Swift.String)
+  @objc public func subscribe(forTalkerNotification enable: Swift.Bool)
+  @objc public func addSpotlightUsers(_ clientIds: [Swift.String])
+  @objc public func removeSpotlightUsers(_ clientIds: [Swift.String])
+  @objc public func switchRoomMode(_ roomMode: Swift.String)
+  @objc public func startLiveRecording(_ streamingConfig: [Swift.String : Any])
+  @objc public func stopLiveRecording()
+  @objc public func switchATView(_ viewString: Swift.String)
+  @objc public func forceUpdateATList()
+  @objc public func getPlayer(_ clientID: Swift.String) -> EnxRTCiOS.EnxPlayerView?
+  @objc public func highlightBorderForClient(_ clientIDs: [Swift.String])
+  @objc public func changeBgColorForClients(_ clientIDs: [Swift.String], withColor color: UIKit.UIColor)
+  @objc public func updateLayout(_ layoutOptions: [Swift.String : Any])
+  @objc public func sendTypingIndicator(_ isShow: Swift.Bool, toClientId clientIds: [Swift.String]?)
+  @objc public func saveCustomData(_ dataOption: [Swift.String : Any], withData data: [Swift.String : Any])
+  @objc public func getCustomData(_ dataOption: [Swift.String : Any])
+  @objc public func setCustomData(_ dataOption: [Swift.String : Any], withData data: [Swift.String : Any])
+  @objc public func subscribe(forLiveTranscription enable: Swift.Bool)
+  @objc public func startLiveTranscription(forRoom languge: Swift.String?)
+  @objc public func stopLiveTranscription()
+  @objc public func setSpeakerVolume(_ volume: Swift.Float)
+  @objc public func requestSharePermission(_ pubType: EnxRTCiOS.EnxPubType)
+  @objc public func cancelSharePermission(_ pubType: EnxRTCiOS.EnxPubType)
+  @objc public func setSharePermissionMode(_ pubType: EnxRTCiOS.EnxPubType, withmode pubMode: EnxRTCiOS.EnxPubMode)
+  @objc public func grantSharePermission(_ pubType: EnxRTCiOS.EnxPubType, requestyId clientID: Swift.String)
+  @objc public func denySharePermission(_ pubType: EnxRTCiOS.EnxPubType, requestyId clientID: Swift.String)
+  @objc public func releaseSharePermission(_ pubType: EnxRTCiOS.EnxPubType, requestyId clientID: Swift.String)
+  @objc public func getSharePermissions() -> [Swift.String : Any]
+  @objc public func getRoomMode() -> Swift.String
+  @objc public func lockRoom()
+  @objc public func unlockRoom()
+  @objc public func getUserList() -> [Any]?
+  @objc public func requestFloor()
+  @objc public func cancelFloor()
+  @objc public func finishFloor()
+  @objc public func grantFloor(_ clientId: Swift.String)
+  @objc public func denyFloor(_ clientId: Swift.String)
+  @objc public func releaseFloor(_ clientId: Swift.String)
+  @objc public func invite(toFloor clientId: Swift.String)
+  @objc public func acceptInviteFloorRequest(_ clientId: Swift.String)
+  @objc public func cancelFloorInvite(_ clientId: Swift.String)
+  @objc public func rejectInviteFloor(_ clientId: Swift.String)
+  @objc public func hardMute()
+  @objc public func hardUnMute()
+  @objc public func hardMuteUserAudio(_ clientId: Swift.String)
+  @objc public func hardUnmuteUserAudio(_ clientId: Swift.String)
+  @objc public func hardMuteUserVideo(_ clientId: Swift.String)
+  @objc public func hardUnmuteUserVideo(_ clientId: Swift.String)
+  @objc public func sendMessage(_ message: Swift.String, isBroadCast broadcast: Swift.Bool, recipientIDs clientIds: [Swift.String]?)
+  @objc public func sendUserData(_ message: [Swift.String : Any], isBroadCast broadcast: Swift.Bool, recipientIDs clientIds: [Swift.String]?)
+  @objc public func setZoomFactor(_ value: CoreFoundation.CGFloat, clientId cids: [Swift.String]?)
+  @objc public func stopVideoTracksOnApplication(background flag: Swift.Bool)
+  @objc public func muteSubscribeStreamsAudio(_ flag: Swift.Bool)
+  @objc public func switchUserRole(_ clientId: Swift.String)
+  @objc public func switchUsersRole(_ options: [[Swift.String : Swift.String]])
+  @objc public func requestUserRoleChange(_ options: [Swift.String : Swift.String])
+  @objc public func cancelUserRoleChangeRequest()
+  @objc public func acceptUserRoleChange(_ options: [Swift.String : Swift.String])
+  @objc public func denyUserRoleChange(_ options: [Swift.String : Swift.String])
+  @objc public func makeOutboundCall(_ number: Swift.String, callerId cID: Swift.String)
+  @objc public func makeOutboundCall(_ number: Swift.String, callerId cID: Swift.String, withDialOptions dialOptions: [Swift.String : Any])
+  @objc public func makeOutboundCalls(_ numberList: [Swift.String], callerId cID: Swift.String, withDialOptions dialOptions: [Swift.String : Any])
+  @objc public func cancelOutboundCall(_ number: Swift.String)
+  @objc public func sendDTMF(_ number: Swift.String, digits dg: Swift.String)
+  @objc public func dropUser(_ clientIds: [Swift.String])
+  @objc public func destroy()
+  @objc public func connect(withScreenshare token: Swift.String, withScreenDelegate delegate: any EnxRTCiOS.EnxBroadCastDelegate)
+  @objc public func startScreenShare()
+  @objc public func startScreenShare(_ option: [Swift.String : Any])
+  @objc public func sendVideoBuffer(_ sampleBuffer: CoreVideo.CVPixelBuffer, withTimeStamp timeStampNs: Swift.Int64)
+  @objc public func stopScreenShare()
+  @objc public func exitScreenShare()
+  @objc public func stopAllSharing()
+  @objc public func overrideScreenShare()
+  @objc public func createBreakOutRoom(_ data: [Swift.String : Any])
+  @objc public func createAndInviteBreakoutRoom(_ data: [Swift.String : Any])
+  @objc public func joinBreakOutRoom(_ data: [Swift.String : Any], withStreamInfo streamInfo: [Swift.String : Any])
+  @objc public func invite(toBreakOutRoom data: [Swift.String : Any])
+  @objc public func rejectBreakOutRoom(_ roomId: Swift.String)
+  @objc public func clearAllBreakOutSession()
+  @objc public func destroyAllBreakOutSession()
+  @objc public func sendFiles(_ isBroadcast: Swift.Bool, clientIds cID: [Swift.String])
+  @objc public func cancelUpload(_ jobID: Swift.Int)
+  @objc public func cancelAllUploads()
+  @objc public func downloadFile(_ file: [Swift.String : Any], autoSave flag: Swift.Bool)
+  @objc public func cancelDownload(_ jobID: Swift.Int)
+  @objc public func cancelAllDownloads()
+  @objc public func getAvailableFiles() -> [Any]?
+  @objc public func startCanvas(_ view: UIKit.UIView)
+  @objc public func stopCanvas()
+  @objc public func setReceiveVideoQuality(_ opt: [Swift.String : Any])
+  @objc public func getReceiveVideoQuality(_ streamType: Swift.String) -> Swift.String?
+  @objc public func setAdvanceOptions(_ data: [Any])
+  @objc public func getAdvanceOptions()
+  @objc public func enableStats(_ flag: Swift.Bool)
+  @objc public func getSelectedDevice() -> Swift.String?
+  @objc public func getDevices() -> [Swift.String]?
+  @objc public func switchMediaDevice(_ mediaName: Swift.String)
+  @objc public func enableProximitySensor(_ value: Swift.Bool)
+}
+extension EnxRTCiOS.EnxRoom : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction) async -> WebKit.WKNavigationActionPolicy
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+}
+@objc public protocol EnxTalkerStreamDelegate {
+  @objc optional func didSelectedStreamAtIndex(_ stream: EnxRTCiOS.EnxStream)
+}
+@objc @_Concurrency.MainActor @preconcurrency open class EnxATListView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var playerDelegate: Swift.AnyObject?
+  @_Concurrency.MainActor @preconcurrency public var delegate: (any EnxRTCiOS.EnxTalkerStreamDelegate)?
+  @_Concurrency.MainActor @preconcurrency public init(WithFrame frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func willMove(toSuperview newSuperview: UIKit.UIView?)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func didMoveToSuperview()
+  @_Concurrency.MainActor @preconcurrency public func preapareATView(_ list: [EnxRTCiOS.EnxStream])
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency public func updateView(_ array: [EnxRTCiOS.EnxStream])
+  @_Concurrency.MainActor @preconcurrency public func updateLoayout()
+  @_Concurrency.MainActor @preconcurrency public func switchATView(_ isList: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func forceUpdate()
+  @_Concurrency.MainActor @preconcurrency public func getStream(_ clientID: Swift.String) -> EnxRTCiOS.EnxStream?
+  @_Concurrency.MainActor @preconcurrency public func highlightBorderColorForClient(_ clientIDs: [Swift.String])
+  @_Concurrency.MainActor @preconcurrency public func chnageBGColorForClient(_ clientIDs: [Swift.String], withColor color: UIKit.UIColor)
+  @objc deinit
+}
+extension EnxRTCiOS.EnxATListView : UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumLineSpacingForSectionAt section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+public enum LogMode {
+  case LOG_MODE_ERROR, LOG_MODE_DEBUG, LOG_MODE_WARNING, LOG_MODE_INFO
+  public static func == (a: EnxRTCiOS.LogMode, b: EnxRTCiOS.LogMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public func L_DEBUG(_ message: Swift.String, _ args: any Swift.CVarArg...)
+public func L_INFO(_ message: Swift.String, _ args: any Swift.CVarArg...)
+public func L_ERROR(_ message: Swift.String, _ args: any Swift.CVarArg...)
+public func L_WARNING(_ message: Swift.String, _ args: any Swift.CVarArg...)
+public func logThis(mode: EnxRTCiOS.LogMode, message: Swift.String, args: [any Swift.CVarArg])
+public func ASSERT_STREAM_ID_STRING(_ streamId: Any)
+@objc @_inheritsConvenienceInitializers open class EnxUtilityManager : ObjectiveC.NSObject {
+  @objc public static let shareInstance: EnxRTCiOS.EnxUtilityManager
+  public var previousNetwork: Swift.String! {
+    get
+  }
+  public var mRoom: EnxRTCiOS.EnxRoom! {
+    get
+  }
+  public var isNoNetwork: Swift.Bool
+  public var sdkVersion: Swift.String! {
+    get
+  }
+  public var fileManager: Foundation.FileManager! {
+    get
+  }
+  public var uniqueSequence: Swift.Int! {
+    get
+  }
+  public var eventArray: [Any] {
+    get
+  }
+  public var messageQueue: [Swift.AnyObject] {
+    get
+  }
+  public var iceServers: [WebRTC.RTCIceServer] {
+    get
+  }
+  public var logger: WebRTC.RTCFileLogger! {
+    get
+  }
+  public var loggerEnable: Swift.Bool {
+    get
+  }
+  public var prefixes: [Swift.String] {
+    get
+  }
+  public var thameColor: UIKit.UIColor {
+    get
+  }
+  public var appGroupName: Swift.String! {
+    get
+  }
+  public var userKey: Swift.String! {
+    get
+  }
+  public var vcxLogId: Swift.String! {
+    get
+  }
+  @objc override dynamic public init()
+  @objc public func startLog()
+  @objc public func setApp(groupsName appGroup: Swift.String, withUserKey key: Swift.String)
+  @objc deinit
+}
+extension UIKit.UIImage {
+  public class func gifImageWithData(data: Foundation.NSData) -> UIKit.UIImage?
+  public class func gifImageWithURL(gifUrl: Swift.String) -> UIKit.UIImage?
+  public class func gifImageWithName(name: Swift.String) -> UIKit.UIImage?
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public func removeAllConstraints()
+}
+public enum EnxClientState : Swift.Int {
+  case ready, connecting, connected, disconnected
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class EnxSignalingChannel : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol EnxTroubleShooterDelegate {
+  @objc func didClientDiagnosisFinished(_ data: [Any]?)
+  @objc func didClientDiagnosisFailed(_ data: [Any]?)
+  @objc func didClientDiagnosisStatus(_ data: [Any]?)
+  @objc func didClientDiagnosisStopped(_ data: [Any]?)
+}
+@objc @_inheritsConvenienceInitializers open class EnxRtc : ObjectiveC.NSObject {
+  @objc public var delegate: (any EnxRTCiOS.EnxTroubleShooterDelegate)?
+  @objc override dynamic public init()
+  @objc deinit
+  @objc public func joinRoom(_ token: Swift.String, delegate del: any EnxRTCiOS.EnxRoomDelegate, publishStreamInfo publishInfo: [Swift.String : Any], roomInfo rInfo: [Swift.String : Any], advanceOptions advOptn: [Any]?) -> EnxRTCiOS.EnxStream?
+  @objc public func setTroubleShooterDelegate(_ trubleShootDelegate: any EnxRTCiOS.EnxTroubleShooterDelegate)
+  @objc public func clientDiagnostics(_ options: [Swift.String : Any])
+}
+extension EnxRTCiOS.EnxRtc : WebKit.WKNavigationDelegate, WebKit.WKScriptMessageHandler, WebKit.WKUIDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didStartProvisionalNavigation navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+}
+@objc public protocol EnxPlayerDelegate {
+  @objc optional func didPlayerStats(_ statsData: [Swift.String : Any])
+  @objc optional func didCapturedView(_ snapShot: UIKit.UIImage?)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency open class EnxPlayerView : UIKit.UIView, AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
+  @_Concurrency.MainActor @preconcurrency public var staTsFlag: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public var isPinUSer: Swift.Bool
+  @objc @_Concurrency.MainActor @preconcurrency public var delegate: (any EnxRTCiOS.EnxPlayerDelegate)?
+  @_Concurrency.MainActor @preconcurrency public var playIndex: Swift.Int!
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func awakeFromNib()
+  @objc @_Concurrency.MainActor @preconcurrency public init(withLocalView frame: CoreFoundation.CGRect)
+  @objc @_Concurrency.MainActor @preconcurrency public init(withRemoteView frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func prepareForInterfaceBuilder()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  @objc @_Concurrency.MainActor @preconcurrency public func setContent(mode contentMode: UIKit.UIView.ContentMode)
+  @objc @_Concurrency.MainActor @preconcurrency public func enablePlayerStats(_ flag: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func setUpdateStats(_ data: [Swift.String : Any])
+  @objc @_Concurrency.MainActor @preconcurrency public func captureScreenShot()
+  @_Concurrency.MainActor @preconcurrency @objc public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+  @_Concurrency.MainActor @preconcurrency public func createOverLayView(_ message: Swift.String)
+  @_Concurrency.MainActor @preconcurrency public func removeOverLayView()
+  @_Concurrency.MainActor @preconcurrency public func setConfigureOption(_ options: [Swift.String : Any]?)
+  @objc @_Concurrency.MainActor @preconcurrency public func getremoteView() -> UIKit.UIView?
+  @objc @_Concurrency.MainActor @preconcurrency public func getlocalView() -> UIKit.UIView?
+  @_Concurrency.MainActor @preconcurrency public func createOverlayIcons(_ playerConfiguartion: [Swift.String : Any])
+  @_Concurrency.MainActor @preconcurrency public func videoMutedByUser(_ playerConfiguartion: [Swift.String : Any])
+  @_Concurrency.MainActor @preconcurrency public func videoUnMutedByUser()
+  @_Concurrency.MainActor @preconcurrency public func videoMutedByBW(_ playerConfiguartion: [Swift.String : Any])
+  @_Concurrency.MainActor @preconcurrency public func bandWidthRecovered()
+  @_Concurrency.MainActor @preconcurrency public func audioMuted(_ playerConfiguartion: [Swift.String : Any])
+  @_Concurrency.MainActor @preconcurrency public func audioUnmuted()
+  @_Concurrency.MainActor @preconcurrency public func showAndHideStats(_ flag: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func updateCollectionViewFrame()
+  @_Concurrency.MainActor @preconcurrency public func showAndHidePinged(_ flag: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func showAndHideSpeakerNotification(_ flag: Swift.Bool)
+  @_Concurrency.MainActor @preconcurrency public func updateBW(_ type: Swift.String, isLowBW isLB: Swift.Bool, withConfiguration playerConfiguartion: [Swift.String : Any])
+  @_Concurrency.MainActor @preconcurrency public func addRemoveLocalViewAvatara(_ isAdd: Swift.Bool)
+  @objc deinit
+}
+extension EnxRTCiOS.EnxPlayerView : UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDataSource {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor @preconcurrency public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Swift.Int) -> CoreFoundation.CGFloat
+}
+extension EnxRTCiOS.EnxRoomStatus : Swift.Equatable {}
+extension EnxRTCiOS.EnxRoomStatus : Swift.Hashable {}
+extension EnxRTCiOS.EnxRoomStatus : Swift.RawRepresentable {}
+extension EnxRTCiOS.EnxOutBoundCallState : Swift.Equatable {}
+extension EnxRTCiOS.EnxOutBoundCallState : Swift.Hashable {}
+extension EnxRTCiOS.EnxOutBoundCallState : Swift.RawRepresentable {}
+extension EnxRTCiOS.EnxCustomDataScope : Swift.Equatable {}
+extension EnxRTCiOS.EnxCustomDataScope : Swift.Hashable {}
+extension EnxRTCiOS.EnxCustomDataScope : Swift.RawRepresentable {}
+extension EnxRTCiOS.EnxPubType : Swift.Equatable {}
+extension EnxRTCiOS.EnxPubType : Swift.Hashable {}
+extension EnxRTCiOS.EnxPubType : Swift.RawRepresentable {}
+extension EnxRTCiOS.EnxPubMode : Swift.Equatable {}
+extension EnxRTCiOS.EnxPubMode : Swift.Hashable {}
+extension EnxRTCiOS.EnxPubMode : Swift.RawRepresentable {}
+extension EnxRTCiOS.LogMode : Swift.Equatable {}
+extension EnxRTCiOS.LogMode : Swift.Hashable {}
+extension EnxRTCiOS.EnxClientState : Swift.Equatable {}
+extension EnxRTCiOS.EnxClientState : Swift.Hashable {}
+extension EnxRTCiOS.EnxClientState : Swift.RawRepresentable {}

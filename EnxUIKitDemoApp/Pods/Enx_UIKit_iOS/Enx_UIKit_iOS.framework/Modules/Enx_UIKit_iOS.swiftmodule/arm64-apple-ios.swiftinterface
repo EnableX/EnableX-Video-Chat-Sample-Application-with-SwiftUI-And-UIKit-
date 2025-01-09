@@ -1,0 +1,285 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-experimental-feature OpaqueTypeErasure -enable-bare-slash-regex -module-name Enx_UIKit_iOS
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVFoundation
+import EnxRTCiOS
+@_exported import Enx_UIKit_iOS
+import Foundation
+import ReplayKit
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc public protocol EnxVideoStateDelegate {
+  @objc func disconnect(response: [Any]?)
+  @objc func connectError(reason: [Any]?)
+  @objc func connect(toRoom enxRoom: EnxRTCiOS.EnxRoom?, roomMetadata: [Swift.String : Any]?)
+  @objc optional func didPageSlide(_ pageName: Enx_UIKit_iOS.EnxPageSlideEventName, isShow: Swift.Bool)
+  @objc optional func didUserDataReceived(_ userData: [Swift.String : Any])
+}
+@objc @_Concurrency.MainActor @preconcurrency open class EnxVideoViewClass : UIKit.UIView {
+  @objc @_Concurrency.MainActor @preconcurrency public init(token: Swift.String, delegate: (any Enx_UIKit_iOS.EnxVideoStateDelegate)?, embedUrl: Swift.String?)
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor @preconcurrency public func exitScreenShare()
+  @objc deinit
+}
+extension Enx_UIKit_iOS.EnxVideoViewClass : EnxRTCiOS.EnxRoomDelegate, EnxRTCiOS.EnxStreamDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didConnect roomMetadata: [Swift.String : Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didError reason: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didEventError reason: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didAddedStream stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didPublishStream stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSubscribeStream stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, userDidJoined Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, userDidDisconnected Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency public func room(_ room: EnxRTCiOS.EnxRoom?, didActiveTalkerList Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didActiveTalkerView view: UIKit.UIView?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didAvailable(activeUser count: Swift.Int)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didFloorRequestReceived(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didFinishedFloorRequest(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didCancelledFloorRequest(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didGrantedFloorRequest(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didDeniedFloorRequest(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didReleasedFloorRequest(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didProcessFloorRequested(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didFloorRequested(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didFloorFinished(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didFloorCancelled(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didAudioEvents(_ data: [Swift.String : Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didVideoEvents(_ data: [Swift.String : Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func roomRecord(on Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func roomRecordOff(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didNotifyDeviceUpdate(_ updates: Swift.String)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didMessageReceived data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didUserDataReceived data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSetTalkerCount Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func stream(_ stream: EnxRTCiOS.EnxStream?, didHardVideoMute data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func stream(_ stream: EnxRTCiOS.EnxStream?, didHardVideoUnMute data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func stream(_ stream: EnxRTCiOS.EnxStream?, didRemoteStreamVideoMute data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func stream(_ stream: EnxRTCiOS.EnxStream?, didRemoteStreamVideoUnMute data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func stream(_ stream: EnxRTCiOS.EnxStream?, didRemoteStreamAudioMute data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func stream(_ stream: EnxRTCiOS.EnxStream?, didRemoteStreamAudioUnMute data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didhardMute(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didhardUnMute(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didHardMuteRecived(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didHardunMuteRecived(_ Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didRoomDisconnect(_ response: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStartScreenShareACK Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStoppedScreenShareACK Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didScreenShareStarted stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didScreenShareStopped stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStartCanvasACK Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStoppedCanvasACK Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didCanvasStarted stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didCanvasStopped stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStartAnnotationACK Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStoppedAnnotationACK Data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didAnnotationStarted stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didAnnotationStopped stream: EnxRTCiOS.EnxStream?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didInitFileUpload data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didFileUploaded data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didFileUploadFailed data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didFileUploadStarted data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didFileUploadCancelled data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didFileAvailable data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didInitFileDownload data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didFileDownloaded data: Swift.String?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didFileDownloadFailed data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom, didFileDownloadCancelled data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didConferencessExtended data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didConferenceRemainingDuration data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, diduserAwaited data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didRoomAwated reason: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSwitchUserRole data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didUserRoleChanged data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didRoomModeSwitched data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionDeny data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionsModeChanged data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionRequested data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionReleased data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionCancled data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didSharePermissionGranted data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didAckStartStreaming data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didAckStopStreaming data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStreamingStarted data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStreamingStopped data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStreamingFailed data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didStreamingUpdated data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didHlsStarted data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didHlsStopped data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didHlsFailed data: [Any]?)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func room(_ room: EnxRTCiOS.EnxRoom?, didHlsWaiting data: [Any]?)
+}
+extension Enx_UIKit_iOS.EnxVideoViewClass : EnxRTCiOS.EnxTalkerStreamDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func didSelectedStreamAtIndex(_ stream: EnxRTCiOS.EnxStream)
+}
+extension Enx_UIKit_iOS.EnxVideoViewClass : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldReceive touch: UIKit.UITouch) -> Swift.Bool
+}
+@objc public enum EnxRequiredEventsOption : Swift.Int {
+  case audio = 1, video, cameraSwitch, audioSwitch, groupChat, disconnect, requestFloor, requestList, muteRoom, recording, switchAT, annotation, polling, qna, lobby, roomSetting, ScreenShare, liveStreaming
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum ParticipantListOptions : Swift.Int {
+  case audio, video, chat, disconnect, changeRole
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum RoomSettingOptions : Swift.Int {
+  case autoCopy, askToConf, connectionTime, chatAudio, participantJoin, participantLeft, startRec, stopRec, sessionExp
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum customeNotification : Swift.String {
+  case BottomViewColorUpdate
+  case BottomViewConfigurList
+  case UpdateOptionView
+  case CloseChatPage
+  case SenduserData
+  case UserUpdate
+  case UserConnected
+  case UserDisconnected
+  case RoleChange
+  case updateMenu
+  case refreshMenu
+  case CloseSessionSettingPage
+  case closePollingPage
+  case closeCreatePollingPage
+  case dismissKetBoard
+  case stopStreaming
+  case startSteaming
+  case closeQNAPage
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc public enum EnxPageSlideEventName : Swift.Int {
+  case EnxChat = 1, EnxPolling, EnxQnA, EnxScreenShare, EnxVideoSetting, EnxCreatePoll
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class EnxSetting : ObjectiveC.NSObject {
+  @objc public static let shared: Enx_UIKit_iOS.EnxSetting
+  @objc override dynamic public init()
+  @objc public func setCameraPosition(_ isFontCamera: Swift.Bool)
+  @objc public func startLiveStreaming(afterJoin isStart: Swift.Bool)
+  @objc public func liveStreaming(information info: [Swift.String : Any])
+  @objc public func setRTMPCustom(urlDetails url: Swift.String)
+  @objc public func stopStreaming()
+  @objc public func startStreaming(information info: [Swift.String : Any]?)
+  @objc public func isShow(GoLiveIndicator flag: Swift.Bool = true)
+  @objc public func allChatData() -> [Swift.String : [Any]]
+  @objc public func getRoomMode() -> Swift.String
+  public func updateUserRole(withRole: Swift.Bool)
+  @objc public func setJoinText(_ joinText: Swift.String)
+  @objc public func updateBottomOptionView(withColor: UIKit.UIColor)
+  @objc public func configureRequiredEventsOptionList(withList: [Enx_UIKit_iOS.EnxRequiredEventsOptionModel])
+  @objc public func configureRequiredEventList(withList: [Enx_UIKit_iOS.EnxRequiredEventsOption.RawValue])
+  @objc public func configureParticipantList(to list: [Enx_UIKit_iOS.ParticipantListOptions.RawValue])
+  @objc public func setOption(forScreenShare opt: [Swift.String : Swift.String])
+  @objc public func getOptionForScreenShare() -> [Swift.String : Swift.String]?
+  @objc public func getClientID() -> Swift.String
+  @objc public func getiSKnockRoom() -> Swift.Bool
+  @objc public func getisUserAwaited() -> Swift.Bool
+  @objc public func getisUserInFloorReq() -> Swift.Bool
+  @objc public func getisShareReq() -> Swift.Bool
+  @objc public func getisCanvas() -> Swift.Bool
+  @objc public func setAppGroupsName(groupname: Swift.String, withUserKey keyName: Swift.String)
+  @objc public func getParticipantList() -> [[Swift.String : Swift.String]]
+  @objc public func sendUserData(_ userData: Enx_UIKit_iOS.EnxSendUserDataModel)
+  @objc public func configureRoomSettingOpt(to list: [Enx_UIKit_iOS.RoomSettingOptions.RawValue])
+  @objc public func isPreScreening(_ flag: Swift.Bool)
+  @objc public func isAudioOnlyCall(_ flag: Swift.Bool)
+  @objc public func joinAsVideoMute(_ flag: Swift.Bool)
+  @objc public func joinAsAudioMute(_ flag: Swift.Bool)
+  @objc public func closeChatPage()
+  @objc public func closeSessionSettingPage()
+  @objc public func closePollingPage()
+  @objc public func closeCreatePollingPage()
+  @objc public func closeQNAPage()
+  @objc deinit
+}
+@objc public class EnxRequiredEventsOptionModel : ObjectiveC.NSObject {
+  public init(name: Swift.String!, isSelected: Swift.Bool, optionTag: Enx_UIKit_iOS.EnxRequiredEventsOption!, isSwith: Swift.Bool, eventImageNormal: UIKit.UIImage!, eventImageSelected: UIKit.UIImage!)
+  @objc deinit
+}
+public protocol EnxNibLoadable : AnyObject {
+  static var nib: UIKit.UINib { get }
+  func setupView()
+}
+extension Enx_UIKit_iOS.EnxNibLoadable {
+  public static var nib: UIKit.UINib {
+    get
+  }
+}
+extension Enx_UIKit_iOS.EnxNibLoadable where Self : UIKit.UIView {
+  public static func loadFromNib() -> Self
+  public func setupView()
+}
+public protocol NibLoadableHeader : UIKit.UIView {
+  var height: CoreFoundation.CGFloat { get }
+}
+@objc public class EnxSendUserDataModel : ObjectiveC.NSObject {
+  public init(isBroadCase: Swift.Bool = true, userData: [Swift.String : Any]!, clientList: [Swift.String]? = nil)
+  @objc deinit
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency public var safeAreaFrame: CoreFoundation.CGRect {
+    get
+  }
+}
+@objc public protocol EnxScreenShareStateDelegate {
+  @objc func broadCast(connected date: [Any]?)
+  @objc func broadCastDisconnected()
+  @objc func failedToConnect(withBroadCast reason: [Any]?)
+  @objc func disconnectedByOwner()
+  @objc func requestedTo(exitRoom: [Any]?)
+}
+@objc open class EnxShareClass : ObjectiveC.NSObject {
+  @objc public init(screenShare token: Swift.String, withAppGroupName groupName: Swift.String, withUserKey userKey: Swift.String, delegate: (any Enx_UIKit_iOS.EnxScreenShareStateDelegate)?)
+  @objc public func stopStreenShare()
+  @objc public func processFrame(buffer sampleBuffer: CoreVideo.CVPixelBuffer, withTimeStamp timeStamp: Swift.Int64)
+  @objc deinit
+}
+extension Enx_UIKit_iOS.EnxShareClass : EnxRTCiOS.EnxBroadCastDelegate {
+  @objc dynamic public func failedToDisconnect(withBroadCast data: [Any])
+  @objc dynamic public func broadCastConnected()
+  @objc dynamic public func didStartBroadCast(_ data: [Any]?)
+  @objc dynamic public func didStoppedBroadCast(_ data: [Any]?)
+  @objc dynamic public func broadCastDisconnected()
+  @objc dynamic public func failedToConnect(withBroadCast reason: [Any])
+  @objc dynamic public func disconnectedByOwner()
+  @objc dynamic public func didRequestedExitRoom(_ Data: [Any]?)
+}
+extension Enx_UIKit_iOS.EnxRequiredEventsOption : Swift.Equatable {}
+extension Enx_UIKit_iOS.EnxRequiredEventsOption : Swift.Hashable {}
+extension Enx_UIKit_iOS.EnxRequiredEventsOption : Swift.RawRepresentable {}
+extension Enx_UIKit_iOS.ParticipantListOptions : Swift.Equatable {}
+extension Enx_UIKit_iOS.ParticipantListOptions : Swift.Hashable {}
+extension Enx_UIKit_iOS.ParticipantListOptions : Swift.RawRepresentable {}
+extension Enx_UIKit_iOS.RoomSettingOptions : Swift.Equatable {}
+extension Enx_UIKit_iOS.RoomSettingOptions : Swift.Hashable {}
+extension Enx_UIKit_iOS.RoomSettingOptions : Swift.RawRepresentable {}
+extension Enx_UIKit_iOS.customeNotification : Swift.Equatable {}
+extension Enx_UIKit_iOS.customeNotification : Swift.Hashable {}
+extension Enx_UIKit_iOS.customeNotification : Swift.RawRepresentable {}
+extension Enx_UIKit_iOS.EnxPageSlideEventName : Swift.Equatable {}
+extension Enx_UIKit_iOS.EnxPageSlideEventName : Swift.Hashable {}
+extension Enx_UIKit_iOS.EnxPageSlideEventName : Swift.RawRepresentable {}
