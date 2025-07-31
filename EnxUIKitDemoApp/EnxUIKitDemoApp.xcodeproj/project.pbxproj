@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41FE3147B74E401CAA0C6E38 /* Pods_EnxUIKitDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2D1374053256DC6923426A /* Pods_EnxUIKitDemoApp.framework */; };
+		29DCE839CD0F3C73E6457E96 /* Pods_EnxUIKitDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABCF828CB86385F06EB3B0D /* Pods_EnxUIKitDemoApp.framework */; };
+		BD17AE992E3B4C5A00110D27 /* Enx_UIKit_iOS in Frameworks */ = {isa = PBXBuildFile; productRef = BD17AE982E3B4C5A00110D27 /* Enx_UIKit_iOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8F4CC7AFF86B12DE5E637D08 /* Pods-EnxUIKitDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnxUIKitDemoApp.release.xcconfig"; path = "Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp.release.xcconfig"; sourceTree = "<group>"; };
-		BB80B73D13368D2973D11F73 /* Pods-EnxUIKitDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnxUIKitDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AFD7CE504BEFB03C56B069FB /* Pods-EnxUIKitDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnxUIKitDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BD059F722D2BB7D700C87267 /* AlertToast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlertToast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD22DA0E2D2BA4720011B5AB /* EnxUIKitDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnxUIKitDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB2D1374053256DC6923426A /* Pods_EnxUIKitDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnxUIKitDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEFF5858C866AB61E7A22C98 /* Pods-EnxUIKitDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnxUIKitDemoApp.release.xcconfig"; path = "Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		EABCF828CB86385F06EB3B0D /* Pods_EnxUIKitDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnxUIKitDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BD22DA102D2BA4720011B5AB /* EnxUIKitDemoApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = EnxUIKitDemoApp;
 			sourceTree = "<group>";
 		};
@@ -31,7 +34,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41FE3147B74E401CAA0C6E38 /* Pods_EnxUIKitDemoApp.framework in Frameworks */,
+				BD17AE992E3B4C5A00110D27 /* Enx_UIKit_iOS in Frameworks */,
+				29DCE839CD0F3C73E6457E96 /* Pods_EnxUIKitDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,7 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				BD059F722D2BB7D700C87267 /* AlertToast.framework */,
-				DB2D1374053256DC6923426A /* Pods_EnxUIKitDemoApp.framework */,
+				EABCF828CB86385F06EB3B0D /* Pods_EnxUIKitDemoApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -68,8 +72,8 @@
 		D3FD08931133581F35596309 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BB80B73D13368D2973D11F73 /* Pods-EnxUIKitDemoApp.debug.xcconfig */,
-				8F4CC7AFF86B12DE5E637D08 /* Pods-EnxUIKitDemoApp.release.xcconfig */,
+				AFD7CE504BEFB03C56B069FB /* Pods-EnxUIKitDemoApp.debug.xcconfig */,
+				BEFF5858C866AB61E7A22C98 /* Pods-EnxUIKitDemoApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -81,11 +85,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD22DA1C2D2BA4730011B5AB /* Build configuration list for PBXNativeTarget "EnxUIKitDemoApp" */;
 			buildPhases = (
-				E80375D1625171717B36ECBF /* [CP] Check Pods Manifest.lock */,
+				A40158234E0642E18C5E847F /* [CP] Check Pods Manifest.lock */,
 				BD22DA0A2D2BA4720011B5AB /* Sources */,
 				BD22DA0B2D2BA4720011B5AB /* Frameworks */,
 				BD22DA0C2D2BA4720011B5AB /* Resources */,
-				44D3FA7FFFFBA36987DD8DCA /* [CP] Embed Pods Frameworks */,
+				BC682F887CCA59D852A6FC9A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -107,7 +111,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					BD22DA0D2D2BA4720011B5AB = {
 						CreatedOnToolsVersion = 16.1;
@@ -123,6 +127,9 @@
 			);
 			mainGroup = BD22DA052D2BA4720011B5AB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BD17AE972E3B4C5A00110D27 /* XCRemoteSwiftPackageReference "Enx_UIKit_iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BD22DA0F2D2BA4720011B5AB /* Products */;
 			projectDirPath = "";
@@ -144,24 +151,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		44D3FA7FFFFBA36987DD8DCA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E80375D1625171717B36ECBF /* [CP] Check Pods Manifest.lock */ = {
+		A40158234E0642E18C5E847F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -181,6 +171,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC682F887CCA59D852A6FC9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnxUIKitDemoApp/Pods-EnxUIKitDemoApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -231,6 +238,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = BH56368Y47;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -248,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -295,6 +303,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = BH56368Y47;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -306,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -319,14 +328,13 @@
 		};
 		BD22DA1D2D2BA4730011B5AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB80B73D13368D2973D11F73 /* Pods-EnxUIKitDemoApp.debug.xcconfig */;
+			baseConfigurationReference = AFD7CE504BEFB03C56B069FB /* Pods-EnxUIKitDemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EnxUIKitDemoApp/Preview Content\"";
-				DEVELOPMENT_TEAM = BH56368Y47;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -357,14 +365,13 @@
 		};
 		BD22DA1E2D2BA4730011B5AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F4CC7AFF86B12DE5E637D08 /* Pods-EnxUIKitDemoApp.release.xcconfig */;
+			baseConfigurationReference = BEFF5858C866AB61E7A22C98 /* Pods-EnxUIKitDemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EnxUIKitDemoApp/Preview Content\"";
-				DEVELOPMENT_TEAM = BH56368Y47;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -415,6 +422,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BD17AE972E3B4C5A00110D27 /* XCRemoteSwiftPackageReference "Enx_UIKit_iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EnableX/Enx_UIKit_iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD17AE982E3B4C5A00110D27 /* Enx_UIKit_iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD17AE972E3B4C5A00110D27 /* XCRemoteSwiftPackageReference "Enx_UIKit_iOS" */;
+			productName = Enx_UIKit_iOS;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD22DA062D2BA4720011B5AB /* Project object */;
 }
