@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/EnableX/EnablexWebRTC.git",
       "state" : {
-        "revision" : "cf2162e19bcfb1dc0719ae356e35c339fcccb5ac",
-        "version" : "2.0.1"
+        "revision" : "1b52de85e484ef8e41ed18eb26f7506aca4b8afa",
+        "version" : "2.0.2"
       }
     },
     {
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/EnableX/Enx_UIKit_iOS.git",
       "state" : {
-        "revision" : "dab4cec1fabb0f903b716980203653406f8b5b47",
-        "version" : "2.2.0"
+        "revision" : "bb71180afb4178d02641512552ff4012081acb8f",
+        "version" : "2.2.2"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/EnableX/EnxRTCiOS.git",
       "state" : {
-        "revision" : "42c5aecb3e218781439e6166d7fa1b5495ebf29c",
-        "version" : "3.1.2"
+        "revision" : "22f1fec7e500b646f492f272255e9466bf3aeabe",
+        "version" : "3.1.5"
       }
     }
   ],
